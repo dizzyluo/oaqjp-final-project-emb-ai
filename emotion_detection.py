@@ -9,7 +9,7 @@ def emotion_detector (text_to_analyze):
     if r.status_code == 200:
         data = json.loads(r.text)
         dominant = sorted(data['emotionPredictions'][0]['emotion'],  key=lambda k: data['emotionPredictions'][0]['emotion'][k])[-1]
-        print(dominant)
+
         emotion_payload = data['emotionPredictions'][0]['emotion']
         emotion_payload['dominant_emotion'] = dominant
         return emotion_payload
