@@ -13,5 +13,14 @@ def emotion_detector (text_to_analyze):
         emotion_payload = data['emotionPredictions'][0]['emotion']
         emotion_payload['dominant_emotion'] = dominant
         return emotion_payload
+    elif r.status_code == 400:
+        return {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
     else:
         print("Error")
